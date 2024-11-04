@@ -1,0 +1,185 @@
+@import './_variables';
+@import './_mixins';
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing-page {
+  background-color: $dark-bg;
+  color: $text-light;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .intro-overlay {
+    background-color: $grey-bg;
+    width: 23rem;
+    @include centerVH;
+    border-radius: 8px;
+    overflow: hidden;
+
+    // Apply a larger width on big screens
+    @media (min-width: 1200px) {
+      width: 30rem;
+    }
+
+    .overlay-logo {
+      background: url(../assets/logo.png) no-repeat center;
+      height: 20rem;
+      width: 100%;
+      @include bgConfig;
+    }
+
+    .overlay-text {
+      
+
+      .title {
+        font-size: 2.5rem;
+        background-color: orange;
+        @include font-settings($color: $text-light, $size: 2.5em, $weight: bold);
+
+        // Adjust font size on larger screens
+        @media (min-width: 1200px) {
+          font-size: 3rem;
+        }
+      }
+
+      .subtitle {
+        @include font-settings($color: $text-light, $size: 1.1em, $weight: normal);
+
+        // Adjust font size on larger screens
+        @media (min-width: 1200px) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    button {
+      @include hover-button();
+      width: 200px; // Wider fixed width for the button
+      padding: 8px 0; // Smaller height with reduced vertical padding
+      margin: 0 auto; // Center the button
+      font-weight: bold; // Make button text bold
+      color: $button-text; // Use the button text color variable
+
+      // Additional styling for large screens
+      @media (min-width: 1200px) {
+        width: 220px; // Consistent wider width on larger screens
+      }
+    }
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1200px;
+
+    // Adjust layout for larger screens
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+  }
+
+  // Base card styling
+  .card {
+    background-color: $grey-bg;
+    border-radius: $border-radius;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(150, 150, 150, 0.2);
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+
+    h2 {
+      font-size: 2em;
+      color: $secondary-color;
+      margin-bottom: 10px;
+      @include font-settings($color: $secondary-color, $size: 2em, $weight: bold);
+
+      // Increase font size on larger screens
+      @media (min-width: 1200px) {
+        font-size: 2.2em;
+      }
+    }
+
+    p, ul {
+      @include font-settings($color: $text-light, $size: 1.1em);
+      line-height: 1.6;
+
+      // Increase font size on larger screens
+      @media (min-width: 1200px) {
+        font-size: 1.2em;
+      }
+    }
+
+    button {
+      @include hover-button();
+      background-color: $primary-color;
+      color: $button-text;
+      width: 200px; // Wider fixed width for card buttons
+      padding: 8px 0; // Smaller height with reduced vertical padding
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      font-weight: bold; // Make card button text bold
+      @include rounded-corners($border-radius);
+      @include button-hover-effect;
+
+      // Consistent wider width on larger screens
+      @media (min-width: 1200px) {
+        width: 220px; // Consistent wider width on larger screens
+      }
+    }
+  }
+
+  .card-why-important, .card-when-to-wash {
+    background-color: lighten($grey-bg, 5%);
+    border: 2px dashed $secondary-color;
+    padding: 25px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .dirtyhandimage {
+      width: 50%;
+      height: auto;
+      border-radius: $border-radius;
+      margin-bottom: 20px;
+
+      // Scale up image on larger screens
+      @media (min-width: 1200px) {
+        width: 60%;
+      }
+    }
+
+    ul li::before {
+      content: '✔';
+      color: $primary-color;
+    }
+  }
+}

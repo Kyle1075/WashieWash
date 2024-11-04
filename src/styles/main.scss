@@ -1,0 +1,55 @@
+// main.scss
+
+// Import variables and mixins
+@import './variables';
+@import './mixins';
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap');
+
+// Global styles (optional)
+body {
+  background-color: $dark-bg;
+  font-family: 'Red Hat Display', sans-serif; // Change to the new font
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #050925; // Optional: background color for the nav
+  padding: 10px; // Optional: padding for the nav
+}
+
+ul {
+  display: flex; // Use flexbox to arrange items in a row
+  list-style-type: none; // Remove bullet points
+  padding: 0; // Remove default padding
+  margin: 0; // Remove default margin
+
+  li {
+    margin-right: 20px; // Space between items
+  }
+
+  li:last-child {
+    margin-right: 0; // Remove margin from the last item
+  }
+}
+.exit-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: $text-light; // Use a color variable or a specific color
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1); // Slightly darker background on hover
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

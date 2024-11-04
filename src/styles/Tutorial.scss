@@ -1,0 +1,96 @@
+@import './variables';
+@import './mixins';
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); // Start 20px below final position
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); // End at final position
+  }
+}
+
+.tutorial-card {
+  background-color: $grey-bg;
+  border-radius: $border-radius;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(150, 150, 150, 0.2);
+  color: $text-light;
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    animation: fadeInUp 0.6s forwards;
+
+    h2 {
+      font-size: 25px;
+      margin-bottom: 20px;
+      color: $text-light;
+  
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius;
+      margin-bottom: 20px;
+    }
+
+    .next-btn {
+      background-color: $primary-color;
+      color: $button-text;
+      font-weight: bold;
+      padding: 15px 200px;
+      border: none;
+      @include rounded-corners($border-radius);
+      cursor: pointer;
+      @include button-hover-effect;
+
+      &:hover {
+        background-color: $button-hover-bg;
+      }
+    }
+  }
+}
+.popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 20px;
+  text-align: center;
+  h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: orange;
+  }
+  p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  button {
+    padding: 15px 200px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+}

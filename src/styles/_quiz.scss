@@ -1,0 +1,108 @@
+@import 'mixins';
+@import 'variables';
+
+@import 'mixins';
+@import 'variables';
+
+.quiz {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: $grey-bg;
+  @include rounded-corners($border-radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    @include font-settings(orange, 1.5em, bold);
+  }
+
+  .quiz-question {
+    text-align: center;
+    margin-bottom: 20px;
+    @include font-settings($text-light, 1.2em);
+  }
+
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .quiz-option {
+      padding: 10px;
+      background-color: $primary-color;
+      font-weight: bold;
+      color: $button-text;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      @include rounded-corners($border-radius);
+      transition: background-color 0.3s ease;
+      
+      // Use the button-hover-effect mixin
+      @include button-hover-effect;
+    }
+  }
+
+  .quiz-completion {
+    text-align: center;
+
+    h3 {
+      margin-top: 0;
+      @include font-settings($text-light,2.0em ,bold);
+    }
+
+    p {
+      margin-bottom: 30px;
+      @include font-settings(green, 1.2em);
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: $primary-color;
+      color: $button-text;
+      border: none;
+      cursor: pointer;
+      @include rounded-corners($border-radius);
+      @include button-hover-effect;
+    }
+  }
+
+  
+  .feedback-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 50;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &.correct {
+      background-color: $secondary-color; // Style for correct feedback
+    }
+
+    &.wrong {
+      background-color: #d9534f; // Style for wrong feedback
+    }
+
+    // Animation for showing feedback popup
+    &.show {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+
+    h3 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+  
+}

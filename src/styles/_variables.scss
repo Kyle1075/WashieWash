@@ -1,0 +1,10 @@
+// _variables.scss
+$primary-color: #0070f3;     // Blue color for buttons and highlights
+$secondary-color: #f5a623;   // Yellowish color for achievements or warnings
+$dark-bg: #1e1e1e;           // Dark background
+$text-light: #ffffff;        // White text
+$text-dark: #333333;         // Dark text
+$button-hover-bg: darken($primary-color, 10%);
+$button-text: $text-light;
+$border-radius: 10px;
+$grey-bg:#2a2828;

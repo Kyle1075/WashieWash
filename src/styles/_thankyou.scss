@@ -1,0 +1,58 @@
+@import '_variables';
+@import '_mixins';
+.thank-you-overlay {
+    background-color: $grey-bg;
+    width: 23rem;
+    @include centerVH;
+    border-radius: 8px;
+    overflow: hidden;
+  
+    @media (min-width: 1200px) {
+      width: 30rem;
+    }
+    .overlay-text {
+      padding: 20px;
+      text-align: center;
+  
+      .title {
+        font-size: 2.5rem;
+        background-color: orange;
+        @include font-settings($color: $text-light, $size: 2.5em, $weight: bold);
+  
+        @media (min-width: 1200px) {
+          font-size: 3rem;
+        }
+      }
+  
+      .subtitle {
+        font-size: 1.2rem;
+        @include font-settings($color: $text-light, $size: 1.2em, $weight: bold);
+  
+        @media (min-width: 1200px) {
+          font-size: 1.5rem;
+        }
+      }
+      .message {
+        font-size: 1rem;
+        @include font-settings($color: $text-light, $size: 1em, $weight: normal);
+  
+        @media (min-width: 1200px) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  
+    button {
+      @include hover-button();
+      width: 200px;
+      padding: 8px 0;
+      margin: 0 auto;
+      font-weight: bold;
+      color: $button-text;
+  
+      @media (min-width: 1200px) {
+        width: 220px;
+      }
+    }
+  }
+  
