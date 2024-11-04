@@ -54,7 +54,7 @@ Washie Wash is a prototype created while learning and programming, which took so
    git clone <repository-url>
    cd <repository-folder>
 2. **Run the program**:
-Make sure NodeJS is install
+ Make sure NodeJS is install
+   ```bash
     npm install
     npm start
-    
