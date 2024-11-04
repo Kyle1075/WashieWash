@@ -1,5 +1,5 @@
 # Washie Wash
-
+![Washie Wash Logo](src/assets/logo.png)
 ## Overview
 
 ### 1.1 Feature Name:
